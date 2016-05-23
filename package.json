@@ -1,0 +1,28 @@
+{
+  "name": "checkout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha",
+    "tdd": "node_modules/mocha/bin/mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmanzano/checkout.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmanzano/checkout/issues"
+  },
+  "homepage": "https://github.com/mmanzano/checkout#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "expect": "^1.19.0",
+    "mocha": "^2.4.5"
+  }
+}
