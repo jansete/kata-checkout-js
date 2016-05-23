@@ -65,13 +65,13 @@ var Cart = require('../src/classes/cart.js');
         cart.add('TACH');
         cart.add('MADO');
         assertEquals(cart.total(), 26000, "El total para 2 FUCH, 2 TACH, 1 MADO es 26000");
-    });//();
+    })();
     (function() {
         var cart = new Cart(rules);
         for (var i=0;i<4;i++) cart.add('FUCH');
         for (var j=0;j<10;j++) cart.add('TACH');
         cart.add('BROC');
         assertEquals(cart.total(), 41500, "El total para 4 FUCH, 10 TACH, 1 BROC es 41500");
-    });//();
+    })();
 })();
 
