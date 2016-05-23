@@ -1,32 +1,30 @@
 function Cart(catalogue) {
-    this.order = [];
+    this.order = {};
+    this.totalPrice = 0;
     this.add = function add(productId) {
         // añadir al carrito
         if (catalogue[productId] == null) {
             throw new Error("No se admiten productos que no están en catálogo.");
         }
-        this.order.push(productId);
-    };
-    this.total = function total() {
-        if (this.order.length === 0) return 0;
-        var amount = [];
-        var sum = 0;
-        for (var index = 0; index < this.order.length; index++) {
-            var productId = this.order[index];
-            if(amount[productId] === undefined) {
-                amount[productId] = 0;
-            }
-            amount[productId]++;
-            if (catalogue[productId].discountAvailable) {
-                if(amount[productId] % catalogue[productId].discountWhen !== 0) {
-                    sum = sum + catalogue[productId].price;
-                }
-            } else {
-                sum = sum + catalogue[productId].price;
-            }
+
+        if (this.order[productId] == null) {
+            this.order[productId] = {amount: 0};
         }
-        return sum;
+
+        this.order[productId].amount++;
+
+        if (catalogue[productId].discountAvailable) {
+            if (this.order[productId].amount % catalogue[productId].discountWhen !== 0) {
+                this.totalPrice = this.totalPrice + catalogue[productId].price;
+            }
+        } else {
+            this.totalPrice = this.totalPrice + catalogue[productId].price;
+        }
     };
-};
+
+    this.total = function total() {
+        return this.totalPrice;
+    };
+}
 
 module.exports = Cart;
